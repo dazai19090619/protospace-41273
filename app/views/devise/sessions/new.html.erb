@@ -1,0 +1,29 @@
+<h2 class="page-heading">ユーザーログイン</h2>
+
+<%= form_with model: resource, url: session_path(resource_name), local: true do |f| %>
+
+  <% if resource.errors.any? %>
+    <div class="error-messages" style="color: red;">
+      <ul>
+        <% resource.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :email, "メールアドレス" %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password, "パスワード（6文字以上）" %><br />
+    <%= f.password_field :password, autocomplete: "current-password" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "ログイン", class: :form__btn %>
+  </div>
+
+<% end %>
