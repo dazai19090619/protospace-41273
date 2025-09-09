@@ -17,13 +17,13 @@ class PrototypesController < ApplicationController
   end
 
   def create
-    @prototype = current_user.prototypes.build(prototype_params)
-    if @prototype.save
-      redirect_to @prototype, notice: 'プロトタイプを投稿しました。'
-    else
-      render :new
-    end
+  @prototype = current_user.prototypes.build(prototype_params)
+  if @prototype.save
+    redirect_to root_path, notice: 'プロトタイプを投稿しました。'
+  else
+    render :new
   end
+end
 
   def edit
     # @prototypeはbefore_actionでセット済み
@@ -58,3 +58,4 @@ class PrototypesController < ApplicationController
     params.require(:prototype).permit(:title, :catch_copy, :concept, :image)
   end
 end
+

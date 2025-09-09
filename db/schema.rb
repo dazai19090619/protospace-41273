@@ -49,6 +49,12 @@ ActiveRecord::Schema[7.1].define(version: 2025_07_03_022725) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
+  create_table "posts", charset: "utf8mb4", force: :cascade do |t|
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "prototypes", charset: "utf8mb4", force: :cascade do |t|
     t.string "title", null: false
     t.text "catch_copy", null: false
@@ -71,7 +77,6 @@ ActiveRecord::Schema[7.1].define(version: 2025_07_03_022725) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "occupation"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

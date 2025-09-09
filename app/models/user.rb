@@ -4,4 +4,9 @@ class User < ApplicationRecord
 
   has_many :prototypes, dependent: :destroy
   has_many :comments, dependent: :destroy
+
+  validates :name,        presence: true
+  validates :profile,     presence: true
+  validates :organization, presence: true
+  validates :position,    presence: true
 end
